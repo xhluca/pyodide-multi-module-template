@@ -1,4 +1,7 @@
+import shutil
 from flask import Flask
+
+shutil.make_archive("static/py", 'zip', "static/py")
 
 app = Flask(__name__)
 
