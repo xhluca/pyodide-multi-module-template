@@ -5,10 +5,14 @@ import zipfile
 
 import js
 
+def buff_to_str(buff):
+    return js.String.fromCharCode.apply(None, js.Uint8Array.new(buff))
+
+
 async def load_file(path) -> 'BytesIO':
     r = await js.fetch(path)
     buffer = await r.arrayBuffer()
-    encoded = js.btoa(js.bufferToString(buffer))
+    encoded = js.btoa(buff_to_str(buffer))
     decoded = base64.b64decode(encoded)
 
     return decoded

@@ -1,7 +1,3 @@
-window.bufferToString = buffer => (
-    String.fromCharCode.apply(null, new Uint8Array(buffer))
-);
-
 async function main() {
     await loadPyodide({
         indexURL: "https://cdn.jsdelivr.net/pyodide/v0.17.0/full/"
